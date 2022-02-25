@@ -1,0 +1,8 @@
+
+pkg load database
+conn = pq_connect(setdbopts('dbname','proyectos_usac','host','localhost','port','5432','user','postgres','password','Tlpecqmff.'))
+N=pq_exec_params(conn, 'select * from juego_gran8;')
+N=pq_exec_params(conn, 'select * from estadistica;')
+N=pq_exec_params(conn, 'select * from iva;')
+N=pq_exec_params(conn, 'select * from numero_primo;')
+
