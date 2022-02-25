@@ -1,0 +1,12 @@
+pkg load database
+conn = pq_connect(setdbopts('dbname','proyectos_usac','host','localhost','port','5432','user','postgres','password','Tlpecqmff.'))
+
+precio = input("Ingrese el precio: ");
+iva = precio*0.12;
+precio_sin_iva = precio - precio*0.12;
+
+fprintf('Precio: %9.2f.\n', precio);
+fprintf('IVA: %9.2f.\n', iva);
+fprintf('Precio sin iva: %9.2f.\n', precio_sin_iva);
+
+N=pq_exec_params(conn, 'select * from iva;')
