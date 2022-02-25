@@ -1,0 +1,22 @@
+pkg load database
+pkg load statistics
+conn = pq_connect(setdbopts('dbname','proyectos_usac','host','localhost','port','5432','user','postgres','password','Tlpecqmff.'))
+
+x = randi(6);
+y = randi(6);
+z = x+y;
+
+fprintf('Dado 1: %9.0f\n', x);
+fprintf('Dado 2: %9.0f\n', y);
+fprintf('Dado 2: %9.0f\n', z);
+
+if z == 8
+  fprintf('Ganaste\n');
+elseif z == 7
+  fprintf('Perdiste\n');  
+else
+  fprintf('Vuelve a intenar\n');
+  
+end
+
+N=pq_exec_params(conn, 'select * from juego_gran8;')
